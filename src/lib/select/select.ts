@@ -741,7 +741,12 @@ export class MdSelect extends _MdSelectMixinBase implements AfterContentInit, On
    * overflow. The selection arrow is 9px wide, add 4px of padding = 13
    */
   private _setValueWidth() {
-    this._selectedValueWidth =  this._triggerWidth - 13;
+    if (!this._selectionModel.isEmpty()){
+       this._selectedValueWidth =  0;
+    }
+    else {
+       this._selectedValueWidth =  this._triggerWidth - 9;
+    }
   }
 
   /**
